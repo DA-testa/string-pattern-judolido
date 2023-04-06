@@ -6,8 +6,8 @@ def read_input():
     text = "0"
     
     if choice == 'I':
-        pattern = input() # pattern P
-        text = input() # text T
+        input_str = input()
+        pattern, text = input_str.split()
     elif choice == 'F':
         with open("/home/runner/work/string-pattern-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
