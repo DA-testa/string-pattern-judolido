@@ -1,6 +1,6 @@
 # python3
 def read_input():
-    choice = input("Enter 'I' to input from keyboard or 'F' to input from file: ")
+    choice = input()
     
     if choice == 'I':
         pattern = input() # pattern P
@@ -10,9 +10,7 @@ def read_input():
         with open("/home/runner/work/tree-height-from-empty-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
-    else:
-        raise ValueError("Invalid choice")
-    
+
     return pattern, text
 
 def print_occurrences(output):
