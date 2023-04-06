@@ -2,12 +2,11 @@
 def read_input():
     choice = input()
     
-    pattern = "0"
-    text = "0"
-    
     if choice == 'I':
         input_str = input()
-        pattern, text = input_str.split()
+        listPT = input_str.split()
+        pattern = listPT[0]
+        text = listPT[1]
     elif choice == 'F':
         with open("/home/runner/work/string-pattern-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
