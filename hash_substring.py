@@ -3,11 +3,11 @@ def read_input():
     choice = input("Enter 'I' to input from keyboard or 'F' to input from file: ")
     
     if choice == 'I':
-        pattern = input("Enter pattern: ")
-        text = input("Enter text: ")
+        pattern = input() # pattern P
+        text = input() # text T
     elif choice == 'F':
-        filename = input("Enter filename: ")
-        with open(filename, 'r') as file:
+        filename = input()
+        with open("/home/runner/work/tree-height-from-empty-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
     else:
