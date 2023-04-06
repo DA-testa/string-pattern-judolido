@@ -1,12 +1,13 @@
 # python3
 def read_input():
     choice = input()
-    
+    print(choice)
     if choice == 'I':
         pattern = input() # pattern P
+        print(pattern)
         text = input() # text T
+        print(text)
     elif choice == 'F':
-        filename = input()
         with open("/home/runner/work/tree-height-from-empty-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
