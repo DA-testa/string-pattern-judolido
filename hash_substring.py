@@ -1,29 +1,55 @@
 # python3
 
-def read_input():
-    # this function needs to aquire input both from keyboard and file
-    # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
+    choice = input("Enter 'I' to input from keyboard or 'F' to input from file: ")
     
+    if choice == 'I':
+        pattern = input("Enter pattern: ")
+        text = input("Enter text: ")
+    elif choice == 'F':
+        filename = input("Enter filename: ")
+        with open(filename, 'r') as file:
+            pattern = file.readline().rstrip()
+            text = file.readline().rstrip()
+    else:
+        raise ValueError("Invalid choice")
     
-    # after input type choice
-    # read two lines 
-    # first line is pattern 
-    # second line is text in which to look for pattern 
-    
-    # return both lines in one return
-    
-    # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+    return pattern, text
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
     print(' '.join(map(str, output)))
 
 def get_occurrences(pattern, text):
-    # this function should find the occurances using Rabin Karp alghoritm 
+    p = 31  # prime number used for hashing
+    m = 10**9 + 9  # modulo used for hashing to avoid integer overflow
 
-    # and return an iterable variable
-    return [0]
+    n = len(text)
+    m = len(pattern)
+
+    # precompute the powers of p modulo m
+    p_powers = [1]
+    for i in range(1, n):
+        p_powers.append((p_powers[-1] * p) % m)
+
+    # compute the hash of the pattern and the first window of the text
+    pattern_hash = 0
+    window_hash = 0
+    for i in range(m):
+        pattern_hash = (pattern_hash * p + ord(pattern[i])) % m
+        window_hash = (window_hash * p + ord(text[i])) % m
+
+    occurrences = []
+    for i in range(n - m + 1):
+        if pattern_hash == window_hash:
+            # check if the pattern matches the current window
+            if pattern == text[i:i+m]:
+                occurrences.append(i)
+        if i < n - m:
+            # update the hash of the current window
+            window_hash = ((window_hash - p_powers[m-1] * ord(text[i])) * p + ord(text[i+m])) % m
+            window_hash = (window_hash + m) % m  # to avoid negative numbers
+
+    return occurrences
 
 
 # this part launches the functions
