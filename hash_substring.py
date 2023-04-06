@@ -1,18 +1,19 @@
 # python3
 def read_input():
     choice = input()
-    print(choice)
+    
+    pattern = "0"
+    text = "0"
+    
     if choice == 'I':
         pattern = input() # pattern P
-        print(pattern)
         text = input() # text T
-        print(text)
     elif choice == 'F':
-        with open("/home/runner/work/tree-height-from-empty-judolido/string-pattern-judolido/tests/06", 'r') as file:
+        with open("/home/runner/work/string-pattern-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
-
     return pattern, text
+
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
