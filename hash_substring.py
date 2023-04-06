@@ -12,9 +12,7 @@ def read_input():
         with open("/home/runner/work/string-pattern-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
-            
-     return pattern, text
-
+    return pattern, text
 
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
