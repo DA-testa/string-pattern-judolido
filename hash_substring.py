@@ -1,10 +1,12 @@
 # python3
 def read_input():
     choice = input()
-    print(choice + "CHOICE")
+    
+    pattern = None
+    text = None
+    
     if choice == 'I':
         input_str = input()
-        print(input_str + "PATTERN N TEXT")
         listPT = input_str.split()
         pattern = listPT[0]
         text = listPT[1]
