@@ -4,20 +4,17 @@ def read_input():
     
     pattern = None
     text = None
-    print(choice)
-    print(input())
-    print(input())
+    
     if choice == 'I':
-        input_lines = input_str.split('\r\n')
-
-        pattern = input_lines[1]
-        text = input_lines[2]
+        pattern = input()
+        text = input()
+        return pattern, text
     elif choice == 'F':
         with open("/home/runner/work/string-pattern-judolido/string-pattern-judolido/tests/06", 'r') as file:
             pattern = file.readline().rstrip()
             text = file.readline().rstrip()
             
-    return pattern, text
+            return pattern, text
 
 
 def print_occurrences(output):
