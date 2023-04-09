@@ -15,7 +15,6 @@ def read_input():
     return pattern, text
 
 def print_occurrences(output):
-    # this function should control output, it doesn't need any return
     print(' '.join(map(str, output)))
 
 def get_occurrences(pattern, text):
@@ -25,12 +24,11 @@ def get_occurrences(pattern, text):
     n = len(text)
     m = len(pattern)
 
-    # precompute the powers of p modulo m
     p_powers = [1]
     for i in range(1, n):
         p_powers.append((p_powers[-1] * p) % m)
 
-    # compute the hash of the pattern and the first window of the text
+
     pattern_hash = 0
     window_hash = 0
     for i in range(m):
@@ -40,7 +38,6 @@ def get_occurrences(pattern, text):
     occurrences = []
     for i in range(n - m + 1):
         if pattern_hash == window_hash:
-            # check if the pattern matches the current window
             if pattern == text[i:i+m]:
                 occurrences.append(i)
         if i < n - m:
